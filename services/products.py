@@ -37,8 +37,10 @@ BASE_URL = "https://dummyjson.com"
 
 
 @app.route('/products', methods=['GET'])
-def get_products():
-    response = requests.get(f"{BASE_URL}/products")
+@token_required
+def get_products(current_user_id):
+    headers = {'Authorization': f'Bearer {request.cookies.get("token")}'}
+    response = requests.get(f"{BASE_URL}/products", headers=headers)
     if response.status_code != 200:
         return jsonify({'error': response.json()['message']}), response.status_code
     products = []
@@ -54,7 +56,7 @@ def get_products():
     return jsonify({'data': products}), 200 if products else 204
 
 
-with open('users.json', 'r') as f:
+with open('C:/Users/Aravind/PROJECTS/Flask-Microservice/users.json', 'r') as f:
     users = json.load(f)
 
 
