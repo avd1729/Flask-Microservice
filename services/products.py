@@ -56,7 +56,7 @@ def get_products(current_user_id):
     return jsonify({'data': products}), 200 if products else 204
 
 
-with open('C:/Users/Aravind/PROJECTS/Flask-Microservice/users.json', 'r') as f:
+with open('users.json', 'r') as f:
     users = json.load(f)
 
 
