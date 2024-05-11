@@ -31,7 +31,7 @@ This project is a microservice that provides endpoints for retrieving products.
 4. Run the Docker container:
 
    ```bash
-   docker run -p 5001:5001 products
+   docker run -p 5000:5000 products
    ```
 
 ### Endpoints
